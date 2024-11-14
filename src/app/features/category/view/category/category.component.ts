@@ -13,14 +13,9 @@ const PIPES = [AsyncPipe];
   standalone: true,
   imports: [...MODULES, ...COMPONENTS, ...PIPES],
   template: ` <div class="flex flex-col justify-between h-full w-full">
-    @if (categories$ | async) {
-      <app-category-list />
-      <app-category-tag />
-    }
+    <app-category-list />
+    <app-category-tag />
   </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CategoryComponent {
-  private readonly CategoryService = inject(CategoryService);
-  public categories$ = this.CategoryService.getCategories();
-}
+export class CategoryComponent {}
